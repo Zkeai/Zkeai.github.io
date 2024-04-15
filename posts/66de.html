@@ -840,7 +840,7 @@ queueMicrotask(() => {
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'https://muyuai.netlify.app',
+      envId: 'https://twikoo.muyuai.top/',
       region: '',
       onCommentLoaded: function () {
         anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -909,7 +909,7 @@ queueMicrotask(() => {
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'https://muyuai.netlify.app',
+      envId: 'https://twikoo.muyuai.top/',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
@@ -958,7 +958,7 @@ queueMicrotask(() => {
   const getComment = () => {
     const runTwikoo = () => {
       twikoo.getRecentComments({
-        envId: 'https://muyuai.netlify.app',
+        envId: 'https://twikoo.muyuai.top/',
         region: '',
         pageSize: 6,
         includeReply: true
