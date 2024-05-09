@@ -1,0 +1,1609 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>【solana】001-环境配置 | 木鱼</title><meta name="keywords" content="solana 合约开发"><meta name="author" content="MuYu"><meta name="copyright" content="MuYu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="【solana】001-环境配置"><meta name="application-name" content="【solana】001-环境配置"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="【solana】001-环境配置"><meta property="og:url" content="https://muyuai.top/posts/1795.html"><meta property="og:site_name" content="木鱼"><meta property="og:description" content="Rust 环境安装通过 rustup 工具，可以帮助我们一键安装 rust 开发环境： curl --proto &amp;amp;#x27;&amp;#x3D;https&amp;amp;#x27; --tlsv1.2 -sSf https:&amp;#x2F;&amp;#x2F;sh.rustup.rs | sh&amp;gt;&amp;gt;&amp;gt; Current installation"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png"><meta property="article:author" content="MuYu"><meta property="article:tag" content="[&quot;木鱼&quot;,&quot;木鱼的博客&quot;,&quot;博客&quot;,&quot;MuYu`Blog&quot;,&quot;hexo&quot;,&quot;HEXO&quot;]"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://muyuai.top/posts/1795"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//npm.onmicrosoft.cn"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="codeva-7jbUkNmI6V"/><meta name="msvalidate.01" content="xxx"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"/><link rel="mask-icon" href="/img/siteicon/apple-icon-180.png" color="#5bbad5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="bookmark" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1290-2796.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2796-1290.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1179-2556.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2556-1179.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.14/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ad64482953a95ed0e4b9faf5a9d51e93";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: {"mode":"api","api":"https://api.qjqq.cn/api/Imgcolor?img=","cover_change":true},
+  authorStatus: {},
+  algolia: {"appId":"R36TG9KLCF","apiKey":"0d31593c8c0b48c35c3343a519e3caf2","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"键入后按下回车搜索！","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    simplehomepage: false,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":300,"languages":{"author":"作者: MuYu","link":"链接: ","source":"来源: 木鱼","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#3b70fc","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【solana】001-环境配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-05-07 16:15:11',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 7 || hour >= 21
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><link rel="stylesheet" href="https://tong.muyuai.top/blog/yobob.css"><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://tong.muyuai.top/blog/avatar.jpg"/><div class="loading-image-dot"></div><div id="loading-percentage">0%</div></div></div><script>if (GLOBAL_CONFIG.preloader.source == "2" || GLOBAL_CONFIG.preloader.source == "3") {
+  const loadingPercentage = document.getElementById("loading-percentage");
+  let loadingPercentageTimer = setInterval(function() {
+    var progressBar = document.querySelector(".pace-progress");
+    if (!progressBar) return
+    var currentValue = progressBar.getAttribute("data-progress-text");
+    if (currentValue !== loadingPercentage.textContent) {
+      loadingPercentage.textContent = currentValue;
+      if (currentValue === "100%") {
+        clearInterval(loadingPercentageTimer);
+      }
+    }
+  }, 100);
+}
+
+const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div id="web_box"><div id="web_container"><div id="menu-mask"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://muyuai.top/" title="博客" target="_blank"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">木鱼</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8448602360&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-127px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/equipment/"><i class="anzhiyufont anzhiyu-icon-dice-d20 faa-tada" style="font-size: 0.9em;"></i><span> 我的装备</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" alt="wechat" src="/img/wechat.png"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" alt="alipay" src="/img/alipay.png"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> <span>最新评论</span></span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">音乐</div><span class="author-content-item-title">灵魂的碰撞💥</span></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="anzhiyu.switchDarkMode()" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91/">开发</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/solana-%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91/" tabindex="-1"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>solana 合约开发</span></a></span></div></div><h1 class="post-title">【solana】001-环境配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-07T08:15:11.000Z" title="发表于 2024-05-07 16:15:11">2024-05-07</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-07T08:15:11.000Z" title="更新于 2024-05-07 16:15:11">2024-05-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">913</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="【solana】001-环境配置"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为杭州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>杭州</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/1795.html#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png"></div></header><main class="layout" id="content-inner"><div id="post"><div class="post-ai-description"><div class="ai-title"><i class="anzhiyufont anzhiyu-icon-bilibili"></i><div class="ai-title-text">AI-摘要</div><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i><div id="ai-tag">Tianli GPT</div></div><div class="ai-explanation">AI初始化中...</div><div class="ai-btn-box"><div class="ai-btn-item">介绍自己</div><div class="ai-btn-item">生成本文简介</div><div class="ai-btn-item">推荐相关文章</div><div class="ai-btn-item">前往主页</div><div class="ai-btn-item" id="go-tianli-blog">前往tianli博客</div></div><script data-pjax>(function(){
+  // 当前随机到的ai摘要到index
+  let lastAiRandomIndex = -1;
+  let animationRunning = true; // 标志变量，控制动画函数的运行
+  // 当前gpt模式
+  let mode = "tianli"
+  // 刷新点击次数
+  let refreshNum = 0
+  // 记录上一次传递给aiAbstract的参数
+  let prevParam;
+  const aiTitleRefreshIcon = document.querySelector(".ai-title .anzhiyufont.anzhiyu-icon-arrow-rotate-right")
+  const explanation = document.querySelector(".ai-explanation");
+  const post_ai = document.querySelector(".post-ai-description");
+  let ai_str = "";
+  let ai_str_length = "";
+  let delay_init = 600;
+  let i = 0;
+  let j = 0;
+  let sto = [];
+  let elapsed = 0;
+  const animate = timestamp => {
+    if (!animationRunning) {
+      return; // 动画函数停止运行
+    }
+    if (!animate.start) animate.start = timestamp;
+    elapsed = timestamp - animate.start;
+    if (elapsed >= 20) {
+      animate.start = timestamp;
+      if (i < ai_str_length - 1) {
+        let char = ai_str.charAt(i + 1);
+        let delay = /[,.，。!?！？]/.test(char) ? 150 : 20;
+        if (explanation.firstElementChild) {
+          explanation.removeChild(explanation.firstElementChild);
+        }
+        explanation.innerHTML += char;
+        let div = document.createElement("div");
+        div.className = "ai-cursor";
+        explanation.appendChild(div);
+        i++;
+        if (delay === 150) {
+          document.querySelector(".ai-explanation .ai-cursor").style.opacity = "0";
+        }
+        if (i === ai_str_length - 1) {
+          observer.disconnect(); // 暂停监听
+          explanation.removeChild(explanation.firstElementChild);
+        }
+        sto[0] = setTimeout(() => {
+          requestAnimationFrame(animate);
+        }, delay);
+      }
+    } else {
+      requestAnimationFrame(animate);
+    }
+  };
+  const observer = new IntersectionObserver(
+    entries => {
+      let isVisible = entries[0].isIntersecting;
+      animationRunning = isVisible; // 标志变量更新
+      if (animationRunning) {
+        delay_init = i === 0 ? 200 : 20;
+        sto[1] = setTimeout(() => {
+          if (j) {
+            i = 0;
+            j = 0;
+          }
+          if (i === 0) {
+            explanation.innerHTML = ai_str.charAt(0);
+          }
+          requestAnimationFrame(animate);
+        }, delay_init);
+      }
+    },
+    { threshold: 0 }
+  );
+  function clearSTO() {
+    if (sto.length) {
+      sto.forEach(item => {
+        if (item) {
+          clearTimeout(item);
+        }
+      });
+    }
+  }
+  function startAI(str, df = true) {
+    i = 0; //重置计数器
+    j = 1;
+    clearSTO();
+    animationRunning = false;
+    elapsed = 0;
+    observer.disconnect(); // 暂停上一次监听
+    explanation.innerHTML = df ? "生成中. . ." : "请等待. . .";
+    ai_str = str;
+    ai_str_length = ai_str.length;
+    observer.observe(post_ai); //启动新监听
+  }
+
+  async function aiAbstract(num = 1000) {
+    i = 0; //重置计数器
+    j = 1;
+    clearSTO();
+    animationRunning = false;
+    elapsed = 0;
+    observer.disconnect(); // 暂停上一次监听
+    if (mode === "tianli") {
+      num = Math.max(10, Math.min(2000, num));
+      const options = {
+        key: "7e205e16988136e80208",
+        Referer: "https://muyuai.top/"
+      };
+      const truncateDescription = ("【solana】001-环境配置" + "Rust 环境安装, 环境导入, 查看 rust 版本, 镜像源更换, 命令行工具, 安装, 配置 PATH, 验证版本, 设置网络环境, 测试账号, 创建账号, 查询钱包地址, 申请水龙头, 查询余额, 创建工程, 项目目录, 添加 solana-program sdk, 配置 Cargo.toml, lib.rs, 部署, 发布环境安装通过工具可以帮助我们一键安装开发环境直接采用默认方式环境导入查看版本镜像源更换清华源根据自己的网络情况配置下载源命令行工具官方提供了脚手架接下来我们学习一下脚手架的使用安装配置进入你的的用户名添加你的用户名你的用户名验证版本设置网络环境的网络环境分成开发网测试网主网三类开发网为节点开发使用更新频繁测试网主要给到开发者使用相对稳定主网则是正式环境里面的是真金白银官方地址分别是测试账号创建账号查询钱包地址申请水龙头注意只有测试网和开发网才能领取查询余额创建工程项目目录为源代码存放目录包的配置文件它包含有关包的信息例如其名称版本作者信息和版本信息忽视其余文件添加注意版本需要和脚手架版本一致配置打开文件并添加这些必需的库配置设置并根据需要更新项目名称部署发布").trim().substring(0, num)
+
+      const queryParams = `key=${options.key}&content=${truncateDescription}`;
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Referer: options.Referer
+        },
+      };
+      try {
+        let animationInterval = null
+        if (animationInterval) clearInterval(animationInterval);
+        animationInterval = setInterval(() => {
+          const animationText = "生成中" + ".".repeat(j);
+          explanation.innerHTML = animationText;
+          j = (j % 3) + 1; // 在 1、2、3 之间循环
+        }, 500);
+        const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
+        let result;
+        if (response.status === 403) {
+          result = {
+            summary: "403 refer与key不匹配，本地无法显示。"
+          }
+        } else if (response.status === 500) {
+          result = {
+            summary: "500 系统内部错误"
+          }
+        } else {
+          result = await response.json();
+        }
+        const summary = result.summary.trim();
+        setTimeout(() => {
+          aiTitleRefreshIcon.style.opacity = "1";
+        }, 300)
+        startAI(summary);
+        clearInterval(animationInterval)
+      } catch (error) {
+        console.error(error);
+        explanation.innerHTML = "发生异常" + error;
+      }
+    } else {
+      const strArr = "true".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
+      if (strArr.length !== 1) {
+        let randomIndex = Math.floor(Math.random() * strArr.length); // 随机生成一个索引
+        while (randomIndex === lastAiRandomIndex) { // 如果随机到了上次的索引
+          randomIndex = Math.floor(Math.random() * strArr.length); // 再次随机
+        }
+        lastAiRandomIndex = randomIndex; // 更新上次随机到的索引
+        startAI(strArr[randomIndex]);
+      } else {
+        startAI(strArr[0])
+      }
+      setTimeout(() => {
+        aiTitleRefreshIcon.style.opacity = "1";
+      }, 600)
+    }
+  }
+
+  function aiRecommend() {
+    i = 0; //重置计数器
+    j = 1;
+    clearSTO();
+    animationRunning = false;
+    elapsed = 0;
+    explanation.innerHTML = "生成中. . .";
+    ai_str = "";
+    ai_str_length = "";
+    observer.disconnect(); // 暂停上一次监听
+    sto[2] = setTimeout(() => {
+      explanation.innerHTML = recommendList();
+    }, 600);
+  }
+  function aiGoHome() {
+    startAI("正在前往博客主页...", false);
+    sto[2] = setTimeout(() => {
+      pjax.loadUrl("/");
+    }, 1000);
+  }
+  const ai_btn_item = document.querySelectorAll(".ai-btn-item");
+  function Introduce() {
+    if (mode == "tianli") {
+      startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+    } else {
+      startAI("我是文章辅助AI: AnZhiYu GPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+    }
+  }
+  function aiTitleRefreshIconClick() {
+    aiTitleRefreshIcon.click()
+  }
+  const aiFunctions = [Introduce, aiTitleRefreshIconClick, aiRecommend, aiGoHome];
+  ai_btn_item.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      aiFunctions[index]();
+    });
+  });
+
+  function recommendList() {
+    let thumbnail = document.querySelectorAll('.relatedPosts-list a');
+    if (!thumbnail.length) {
+      const cardRecentPost = document.querySelector('.card-widget.card-recent-post'); 
+      if (!cardRecentPost) return '';
+
+      thumbnail = cardRecentPost.querySelectorAll('.aside-list-item a');
+
+      let list = '';
+      for (let i = 0; i < thumbnail.length; i++) {
+        const item = thumbnail[i];
+        list += `<div class="ai-recommend-item"><span class="index">${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+      }
+      
+      return `很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br /><div class="ai-recommend">${list}</div>`;
+    }
+
+    let list = '';
+    for (let i = 0; i < thumbnail.length; i++) {
+      const item = thumbnail[i];
+      list += `<div class="ai-recommend-item"><span>推荐${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+    }
+
+    return `推荐文章：<br /><div class="ai-recommend">${list}</div>`;
+  }
+
+
+  function changeShowMode() {
+    if (mode === "tianli") {
+      mode = "local";
+      document.getElementById("ai-tag").innerHTML = "AnZhiYu GPT";
+      aiAbstract(1000);
+    } else {
+      mode = "tianli";
+      document.getElementById("ai-tag").innerHTML = "Tianli GPT";
+
+      const truncateDescription = ("" + "Rust 环境安装, 环境导入, 查看 rust 版本, 镜像源更换, 命令行工具, 安装, 配置 PATH, 验证版本, 设置网络环境, 测试账号, 创建账号, 查询钱包地址, 申请水龙头, 查询余额, 创建工程, 项目目录, 添加 solana-program sdk, 配置 Cargo.toml, lib.rs, 部署, 发布环境安装通过工具可以帮助我们一键安装开发环境直接采用默认方式环境导入查看版本镜像源更换清华源根据自己的网络情况配置下载源命令行工具官方提供了脚手架接下来我们学习一下脚手架的使用安装配置进入你的的用户名添加你的用户名你的用户名验证版本设置网络环境的网络环境分成开发网测试网主网三类开发网为节点开发使用更新频繁测试网主要给到开发者使用相对稳定主网则是正式环境里面的是真金白银官方地址分别是测试账号创建账号查询钱包地址申请水龙头注意只有测试网和开发网才能领取查询余额创建工程项目目录为源代码存放目录包的配置文件它包含有关包的信息例如其名称版本作者信息和版本信息忽视其余文件添加注意版本需要和脚手架版本一致配置打开文件并添加这些必需的库配置设置并根据需要更新项目名称部署发布").trim().substring(0, 1000);
+      let value = Math.floor(Math.random() * 3) + 1000;
+      while (value === prevParam || truncateDescription.length - value === prevParam) {
+        value = Math.floor(Math.random() * 3) + 1000;
+      }
+      aiTitleRefreshIcon.style.opacity = "0.2";
+      aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+      aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+      if (truncateDescription.length <= 1000) {
+        let param = truncateDescription.length - Math.floor(Math.random() * 3);
+        while (param === prevParam) {
+          param = truncateDescription.length - Math.floor(Math.random() * 3);
+        }
+        aiAbstract(param);
+        prevParam = param;
+      } else {
+        aiAbstract(value);
+        prevParam = value;
+      }
+      refreshNum++;
+    }
+  }
+
+  //- 监听tag点击事件
+  document.getElementById("ai-tag").addEventListener("click", () => {
+    if (mode === "tianli") {
+      document.querySelectorAll(".ai-btn-item").forEach(item => item.style.display = "none");
+      document.getElementById("go-tianli-blog").style.display = "block";
+      startAI("你好，我是Tianli开发的摘要生成助理TianliGPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通，如果你也需要一个这样的AI摘要接口，可以在下方购买。（暂未开放购买，敬请期待）")
+    } else {
+      document.getElementById("go-tianli-blog").style.display = "none";
+      startAI("你好，我是本站摘要生成助理AnZhiYu GPT，是一个基于GPT-4的生成式AI。我在这里只负责摘要的预生成和显示，你无法与我直接沟通。")
+    }
+
+  });
+
+  aiTitleRefreshIcon.addEventListener("click", () => {
+    const truncateDescription = ("" + "Rust 环境安装, 环境导入, 查看 rust 版本, 镜像源更换, 命令行工具, 安装, 配置 PATH, 验证版本, 设置网络环境, 测试账号, 创建账号, 查询钱包地址, 申请水龙头, 查询余额, 创建工程, 项目目录, 添加 solana-program sdk, 配置 Cargo.toml, lib.rs, 部署, 发布环境安装通过工具可以帮助我们一键安装开发环境直接采用默认方式环境导入查看版本镜像源更换清华源根据自己的网络情况配置下载源命令行工具官方提供了脚手架接下来我们学习一下脚手架的使用安装配置进入你的的用户名添加你的用户名你的用户名验证版本设置网络环境的网络环境分成开发网测试网主网三类开发网为节点开发使用更新频繁测试网主要给到开发者使用相对稳定主网则是正式环境里面的是真金白银官方地址分别是测试账号创建账号查询钱包地址申请水龙头注意只有测试网和开发网才能领取查询余额创建工程项目目录为源代码存放目录包的配置文件它包含有关包的信息例如其名称版本作者信息和版本信息忽视其余文件添加注意版本需要和脚手架版本一致配置打开文件并添加这些必需的库配置设置并根据需要更新项目名称部署发布").trim().substring(0, 1000);
+    let value = Math.floor(Math.random() * 3) + 1000;
+    while (value === prevParam || truncateDescription.length - value === prevParam) {
+      value = Math.floor(Math.random() * 3) + 1000;
+    }
+    aiTitleRefreshIcon.style.opacity = "0.2";
+    aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+    aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+    if (truncateDescription.length <= 1000) {
+      let param = truncateDescription.length - Math.floor(Math.random() * 3);
+      while (param === prevParam) {
+        param = truncateDescription.length - Math.floor(Math.random() * 3);
+      }
+      aiAbstract(param);
+      prevParam = param;
+    } else {
+      aiAbstract(value);
+      prevParam = value;
+    }
+    showAiBtn();
+    refreshNum++;
+  });
+
+  document.getElementById("go-tianli-blog").addEventListener("click", () => {
+    window.open("https://afdian.net/item/886a79d4db6711eda42a52540025c377", "_blank");
+  });
+  
+  if (false) {
+    document.getElementById("ai-Toggle").addEventListener("click", () => {
+      changeShowMode()
+    });
+  }
+
+  function showAiBtn() {
+    document.querySelectorAll(".ai-btn-item").forEach(item => {
+      if (item.id !== "go-tianli-blog") {
+        item.style.display = "block";
+      }
+      if (item.id === "go-tianli-blog") {
+        item.style.display = "none";
+      }
+    });
+  }
+
+
+  aiAbstract();
+  showAiBtn()
+})()</script></div><article class="post-content" id="article-container"><h2 id="Rust-环境安装"><a href="#Rust-环境安装" class="headerlink" title="Rust 环境安装"></a>Rust 环境安装</h2><p>通过 rustup 工具，可以帮助我们一键安装 rust 开发环境：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">curl --proto &#x27;=https&#x27; --tlsv1.<span class="number">2</span> -sSf https://sh.rustup.rs | sh</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Current installation options:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; default host triple: x86_64-apple-darwin</span><br><span class="line">    default toolchain: stable (default)</span><br><span class="line"><span class="function">            profile: <span class="title">default</span></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; <span class="title">modify</span> <span class="title">PATH</span> <span class="title">variable</span>: <span class="title">yes</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; 1) <span class="title">Proceed</span> <span class="title">with</span> <span class="title">installation</span> (<span class="title">default</span>)</span></span><br><span class="line"><span class="function">&gt;&gt;&gt; 2) <span class="title">Customize</span> <span class="title">installation</span></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; 3) <span class="title">Cancel</span> <span class="title">installation</span></span></span><br><span class="line"><span class="function">&gt;&gt;&gt;     //直接<span class="title">Enter</span>采用默认方式</span></span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-rust.png" alt="截屏2024-05-07 16.43.42"></p>
+<h3 id="环境导入"><a href="#环境导入" class="headerlink" title="环境导入"></a>环境导入</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ source &quot;$HOME/.cargo/env&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看-rust-版本"><a href="#查看-rust-版本" class="headerlink" title="查看 rust 版本"></a>查看 rust 版本</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ rustc --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="镜像源更换"><a href="#镜像源更换" class="headerlink" title="镜像源更换"></a>镜像源更换</h3><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/rustup/">清华源</a></p>
+<div class="note warning simple"><p>warning 根据自己的网络情况配置下载源 </p>
+</div>
+
+<h2 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h2><p>Solana 官方提供了脚手架，接下来我们学习一下脚手架的使用</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ sh -c &quot;$(curl -sSfL https://release.solana.com/stable/install)&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-PATH"><a href="#配置-PATH" class="headerlink" title="配置 PATH"></a>配置 PATH</h3><ul>
+<li>进入 &#x2F;Users&#x2F;【你的 mac 的用户名】&#x2F;.profile</li>
+<li>添加 export PATH&#x3D;”&#x2F;Users&#x2F;你的用户名&#x2F;.local&#x2F;share&#x2F;solana&#x2F;install&#x2F;active_release&#x2F;bin:$PATH”</li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ vim /Users/zq/.profile</span><br><span class="line">-----------------------------</span><br><span class="line">. &quot;$HOME/.cargo/env&quot;</span><br><span class="line"></span><br><span class="line">+ export <span class="built_in">PATH</span>=&quot;/Users/你的用户名/.local/share/solana/install/active_release/bin:$<span class="built_in">PATH</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证版本"><a href="#验证版本" class="headerlink" title="验证版本"></a>验证版本</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ solana --version</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; solana-cli <span class="number">1</span>.<span class="number">18</span>.<span class="number">4</span> (src:<span class="number">356</span>c6a38; feat:<span class="number">3352961542</span>, client:SolanaLabs)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置网络环境"><a href="#设置网络环境" class="headerlink" title="设置网络环境"></a>设置网络环境</h3><p>Solana 的网络环境分成开发网、测试网、主网三类，开发网为 Solana 节点开发使用，更新频繁，测试网主要给到 DApp 开发者使用，相对稳定。主网则是正式环境，里面的是真金白银。</p>
+<p>官方 RPC 地址分别是：</p>
+<ul>
+<li>DevNet: <a target="_blank" rel="noopener" href="https://api.devnet.solana.com/">https://api.devnet.solana.com</a></li>
+<li>TestNet: <a target="_blank" rel="noopener" href="https://api.testnet.solana.com/">https://api.testnet.solana.com</a></li>
+<li>MainNet: <a target="_blank" rel="noopener" href="https://api.mainnet-beta.solana.com/">https://api.mainnet-beta.solana.com</a></li>
+</ul>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ solana config <span class="built_in">set</span> --url https://api.devnet.solana.com</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Config File: /Users/you/.config/solana/cli/config.yml</span><br><span class="line">&gt;&gt;&gt; RPC URL: https://api.devnet.solana.com</span><br><span class="line">&gt;&gt;&gt; WebSocket URL: wss://api.devnet.solana.com/ (computed)</span><br><span class="line">&gt;&gt;&gt; Keypair <span class="built_in">Path</span>: /Users/you/.config/solana/id.json</span><br><span class="line">&gt;&gt;&gt; Commitment: confirmed</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试账号"><a href="#测试账号" class="headerlink" title="测试账号"></a>测试账号</h2><h3 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ solana-keygen new --force</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Generating a new keypair</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">For</span> added security, enter a BIP39 passphrase</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; NOTE! This passphrase improves security of the recovery seed phrase <span class="keyword">NOT</span> the</span><br><span class="line">&gt;&gt;&gt; keypair file itself, which is stored as insecure plain text</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; BIP39 Passphrase (empty <span class="keyword">for</span> none):</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt; Wrote new keypair to /Users/you/.config/solana/id.json</span><br><span class="line">&gt;&gt;&gt; ========================================================================</span><br><span class="line">&gt;&gt;&gt; pubkey: <span class="number">5</span>pWae6RxD3zrYzBmPTMYo1LZ5vef3vfWH6iV3s8n6ZRG</span><br><span class="line">&gt;&gt;&gt; ========================================================================</span><br><span class="line">&gt;&gt;&gt; Save this seed phrase and your BIP39 passphrase to <span class="built_in">recover</span> your new keypair:</span><br><span class="line">&gt;&gt;&gt; pistol note gym mesh public endless salt maximum ...</span><br><span class="line">&gt;&gt;&gt; ========================================================================</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询钱包地址"><a href="#查询钱包地址" class="headerlink" title="查询钱包地址"></a>查询钱包地址</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">solana-keygen pubkey</span><br><span class="line">&gt;&gt;&gt; <span class="number">5</span>pWae6RxD3zrYzBmPTMYo1LZ5vef3vfWH6iV3s8n6ZRG</span><br></pre></td></tr></table></figure>
+
+<h3 id="申请水龙头"><a href="#申请水龙头" class="headerlink" title="申请水龙头"></a>申请水龙头</h3><p>注意：只有测试网和开发网才能领取</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ solana airdrop <span class="number">2</span></span><br><span class="line">&gt;&gt;&gt;    Requesting airdrop of <span class="number">2</span> SOL</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;    Signature: &gt;&gt;&gt;<span class="number">4</span>xYKfGjWcLir8F6puSzVWafbqYhjSyESNKygPygia6RgomSJACy5MhoKXhiePtz6VQ5W8DxYF5baeB4Cf9oKnkqy</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;    <span class="number">2</span> SOL</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询余额"><a href="#查询余额" class="headerlink" title="查询余额"></a>查询余额</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ solana balance</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cargo init solana --lib</span><br><span class="line"><span class="built_in">cd</span> solana</span><br></pre></td></tr></table></figure>
+
+<h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── Cargo.lock</span><br><span class="line">├── Cargo.toml</span><br><span class="line">├── src</span><br><span class="line">│   ├── main</span><br><span class="line">│   └── main.rs</span><br><span class="line">└── target</span><br><span class="line">    ├── CACHEDIR.TAG</span><br><span class="line">    └── debug</span><br><span class="line"></span><br><span class="line">4 directories, 5 files</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>src 为源代码存放目录</li>
+<li>cargo.toml 包的配置文件。它包含有关包的信息，例如其名称、版本、作者信息和 Rust 版本信息</li>
+<li>忽视其余文件</li>
+</ul>
+<h3 id="添加-solana-program-sdk"><a href="#添加-solana-program-sdk" class="headerlink" title="添加 solana-program sdk"></a>添加 solana-program sdk</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">solana --version   //solana-cli <span class="number">1</span>.<span class="number">18</span>.<span class="number">4</span> (src:<span class="number">356</span>c6a38; feat:<span class="number">3352961542</span>, client:SolanaLabs)</span><br><span class="line"></span><br><span class="line">cargo add solana-program@&quot;=<span class="number">1</span>.<span class="number">18</span>.<span class="number">4</span>&quot; //注意版本需要和solana脚手架版本一致</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/202405071853377.png" alt="截屏2024-05-07 18.53.00"></p>
+<h3 id="配置-Cargo-toml"><a href="#配置-Cargo-toml" class="headerlink" title="配置 Cargo.toml"></a>配置 Cargo.toml</h3><p>打开 Cargo.toml 文件并添加这些必需的 Rust 库配置设置，并根据需要更新项目名称</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">[lib]</span><br><span class="line">name = <span class="string">&quot;solana&quot;</span></span><br><span class="line"><span class="keyword">crate</span>-<span class="keyword">type</span> = [<span class="string">&quot;cdylib&quot;</span>, <span class="string">&quot;lib&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="lib-rs"><a href="#lib-rs" class="headerlink" title="lib.rs"></a>lib.rs</h3><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> solana_program::&#123;</span><br><span class="line">    account_info::&#123;AccountInfo, next_account_info&#125;,</span><br><span class="line">    entrypoint,</span><br><span class="line">    entrypoint::ProgramResult,</span><br><span class="line">    pubkey::Pubkey,</span><br><span class="line">    msg,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Declare and export the program&#x27;s entrypoint</span></span><br><span class="line">entrypoint!(process_instruction);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Program entrypoint&#x27;s implementation</span></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">process_instruction</span>(</span><br><span class="line">    _program_id: &amp;Pubkey, <span class="comment">// Public key of the account the hello world program was loaded into</span></span><br><span class="line">    accounts: &amp;[AccountInfo], <span class="comment">// The account to say hello to</span></span><br><span class="line">    _instruction_data: &amp;[<span class="type">u8</span>], <span class="comment">// Ignored, all helloworld instructions are hellos</span></span><br><span class="line">) <span class="punctuation">-&gt;</span> ProgramResult &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterating accounts is safer than indexing</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">accounts_iter</span> = &amp;<span class="keyword">mut</span> accounts.<span class="title function_ invoke__">iter</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get the account to say hello to</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">account</span> = <span class="title function_ invoke__">next_account_info</span>(accounts_iter)?;</span><br><span class="line"></span><br><span class="line">    msg!(<span class="string">&quot;Hello World Rust program entrypoint from &#123;&#125;&quot;</span>, account.key);</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">Ok</span>(())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">cargo build-sbf</span><br></pre></td></tr></table></figure>
+
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">solana program deploy target/deploy/solana.so</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/202405080920797.png" alt="截屏2024-05-08 09.19.58"></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/avatar.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/avatar.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">MuYu</div><div class="post-copyright__author_desc">所有美好,不负归期</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://muyuai.top/posts/1795.html">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://muyuai.top/posts/1795.html')">【solana】001-环境配置</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://muyuai.top/posts/1795.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=【solana】001-环境配置&amp;url=https://muyuai.top/posts/1795.html&amp;pic=https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://muyuai.top" target="_blank">木鱼</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/solana-%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>solana 合约开发<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/f6ac.html"><img class="prev-cover" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/IMG_9253(20221122-155835).JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Atleta Network测试网白名单</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo" style="display: none"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-top" title="点击展开"><div class="card-info-avatar"><div class="avatar-img"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="writing_hand" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/270d.png">✍️</g-emoji><span>on Studying</span></div></div></div></div><div class="author-info__description"><a style="color:#fff;font-weight:900"  data-pjax-state >拥抱web3,相信奇迹。<a/> 欢迎大家来到我的博客，我会在这里分享<a style="font-weight:900" data-pjax-state>自研的工具</a>以及<a style="font-weight:900" data-pjax-state>web3撸毛<a/>的教程。</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">MuYu</h1><div class="author-info__desc">所有美好,不负归期</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://twitter.com/lemox66" target="_blank" title="Twitter"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tuite"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://discord.com/invite/zNSVtmkv" target="_blank" title="Discord"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-ShareIcon_AppName_Discord__Size_60px"></use></svg></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">Rust 环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AF%BC%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">环境导入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-rust-%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text">查看 rust 版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%BA%90%E6%9B%B4%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">镜像源更换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text">命令行工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-PATH"><span class="toc-number">2.2.</span> <span class="toc-text">配置 PATH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC"><span class="toc-number">2.3.</span> <span class="toc-text">验证版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83"><span class="toc-number">2.4.</span> <span class="toc-text">设置网络环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7"><span class="toc-number">3.</span> <span class="toc-text">测试账号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%B4%A6%E5%8F%B7"><span class="toc-number">3.1.</span> <span class="toc-text">创建账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E9%92%B1%E5%8C%85%E5%9C%B0%E5%9D%80"><span class="toc-number">3.2.</span> <span class="toc-text">查询钱包地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E6%B0%B4%E9%BE%99%E5%A4%B4"><span class="toc-number">3.3.</span> <span class="toc-text">申请水龙头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E4%BD%99%E9%A2%9D"><span class="toc-number">3.4.</span> <span class="toc-text">查询余额</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">创建工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="toc-number">4.1.</span> <span class="toc-text">项目目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0-solana-program-sdk"><span class="toc-number">4.2.</span> <span class="toc-text">添加 solana-program sdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Cargo-toml"><span class="toc-number">4.3.</span> <span class="toc-text">配置 Cargo.toml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lib-rs"><span class="toc-number">4.4.</span> <span class="toc-text">lib.rs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">4.5.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">4.6.</span> <span class="toc-text">发布</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/1795.html" title="【solana】001-环境配置"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_201704_D.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【solana】001-环境配置"/></a><div class="content"><a class="title" href="/posts/1795.html" title="【solana】001-环境配置">【solana】001-环境配置</a><time datetime="2024-05-07T08:15:11.000Z" title="发表于 2024-05-07 16:15:11">2024-05-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f6ac.html" title="Atleta Network测试网白名单"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/IMG_9253(20221122-155835).JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Atleta Network测试网白名单"/></a><div class="content"><a class="title" href="/posts/f6ac.html" title="Atleta Network测试网白名单">Atleta Network测试网白名单</a><time datetime="2024-04-28T05:05:43.000Z" title="发表于 2024-04-28 13:05:43">2024-04-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/87ae.html" title="幻影钱包空投教程"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://muyu-1318612510.cos.ap-singapore.myqcloud.com/blog/PC_wallpaper_202012.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="幻影钱包空投教程"/></a><div class="content"><a class="title" href="/posts/87ae.html" title="幻影钱包空投教程">幻影钱包空投教程</a><time datetime="2024-04-20T14:12:34.000Z" title="发表于 2024-04-20 22:12:34">2024-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ff8d.html" title="撸毛工具的配置"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/IMG_9263(20221122-155950).JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="撸毛工具的配置"/></a><div class="content"><a class="title" href="/posts/ff8d.html" title="撸毛工具的配置">撸毛工具的配置</a><time datetime="2024-04-17T02:38:19.000Z" title="发表于 2024-04-17 10:38:19">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/66de.html" title="Mac谷歌浏览器多开"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/PC_wallpaper_201803.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mac谷歌浏览器多开"/></a><div class="content"><a class="title" href="/posts/66de.html" title="Mac谷歌浏览器多开">Mac谷歌浏览器多开</a><time datetime="2024-04-12T04:48:38.000Z" title="发表于 2024-04-12 12:48:38">2024-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:saorenzq@gmail.com" title="email"><i class="anzhiyufont anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=100095413801627" title="facebook"><i class="anzhiyufont anzhiyufont anzhiyu-icon-facebook1"></i></a><img class="footer_mini_logo" title="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/avatar.jpg" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/Zkeai" title="Github"><i class="anzhiyufont anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/1689908046" title="Bilibili"><i class="anzhiyufont anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2023 - 2024 By <a class="footer-bar-link" href="https://muyuai.top" title="MuYu" target="_blank">MuYu</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="/null"></a></div></div></div></footer></div></div></div><div id="sidebar"><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://tong.muyuai.top/blog/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=8448602360&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-127px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/equipment/"><i class="anzhiyufont anzhiyu-icon-dice-d20 faa-tada" style="font-size: 0.9em;"></i><span> 我的装备</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版右键菜单</div></div></div></div></div><script>var anzhiyu_intype = false
+var anzhiyu_keyUpEvent_timeoutId = null
+var anzhiyu_keyUpShiftDelayEvent_timeoutId = null
+// 是否开启快捷键
+anzhiyu_keyboard = localStorage.getItem("keyboardToggle") ? localStorage.getItem("keyboardToggle") : false;
+function addKeyShotListener() {
+  const windowObject = window;
+  windowObject.removeEventListener("keydown", keyDownEvent);
+  windowObject.removeEventListener("keyup", keyUpEvent);
+  windowObject.addEventListener("keydown", keyDownEvent);
+  windowObject.addEventListener("keyup", keyUpEvent);
+}
+
+function keyDownEvent(event) {
+  const isEscapeKeyPressed = event.keyCode === 27;
+  const isShiftKeyPressed = event.shiftKey;
+  const isKeyboardEnabled = anzhiyu_keyboard;
+  const isInInputField = anzhiyu_intype;
+
+  if (isEscapeKeyPressed) {
+    anzhiyu.hideLoading();
+    anzhiyu.hideConsole();
+    rm.hideRightMenu();
+  }
+
+  if (isKeyboardEnabled && isShiftKeyPressed && !isInInputField) {
+    anzhiyu_keyUpShiftDelayEvent_timeoutId = setTimeout(()=>{
+      switch (event.keyCode) {
+        case 16:
+          anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
+            document.querySelector("#keyboard-tips").classList.add("show");
+          }, 200);
+          break;
+        case 65:
+          anzhiyu.showConsole();
+          break;
+        case 77:
+          anzhiyu.musicToggle();
+          break;
+        case 75:
+          anzhiyu.keyboardToggle();
+          break;
+        case 73:
+          anzhiyu.rightMenuToggle();
+          break;
+        case 82:
+          toRandomPost();
+          break;
+        case 72:
+          pjax.loadUrl("/");
+          break;
+        case 68:
+          anzhiyu.switchDarkMode();
+          break;
+        case 70:
+          pjax.loadUrl("/fcircle/");
+          break;
+        case 76:
+          pjax.loadUrl("/link/");
+          break;
+        case 80:
+          pjax.loadUrl("/about/");
+          break;
+        default:
+          break;
+      }
+
+      event.preventDefault();
+    }, 100);
+  }
+}
+
+addKeyShotListener();
+
+window.onfocus = function() {
+  document.getElementById("keyboard-tips").classList.remove("show")
+}
+
+function setInputFocusListener() {
+  const inputs = document.querySelectorAll("input, textarea");
+
+  inputs.forEach((input) => {
+    input.addEventListener("focus", () => {
+      setAnzhiyuIntype(true);
+    });
+
+    input.addEventListener("blur", () => {
+      setAnzhiyuIntype(false);
+    });
+  });
+}
+
+function setanzhiyuIntype(value) {
+  anzhiyu_intype = value;
+}
+
+function keyUpEvent(event) {
+  anzhiyu_keyUpEvent_timeoutId && clearTimeout(anzhiyu_keyUpEvent_timeoutId);
+  anzhiyu_keyUpShiftDelayEvent_timeoutId && clearTimeout(anzhiyu_keyUpShiftDelayEvent_timeoutId);
+  if (event.keyCode === 16) {
+    const keyboardTips = document.querySelector("#keyboard-tips");
+    keyboardTips.classList.remove("show");
+  }
+}
+
+function listenToPageInputPress() {
+  const inputElement = document.getElementById("toPageText");
+  const buttonElement = document.getElementById("toPageButton");
+
+  if (!inputElement) {
+    return;
+  }
+
+  inputElement.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      anzhiyu.toPage();
+      pjax.loadUrl(buttonElement.href);
+    }
+  });
+
+  inputElement.addEventListener("input", () => {
+    const value = inputElement.value;
+    if (!value || value === "0") {
+      buttonElement.classList.remove("haveValue");
+    } else {
+      buttonElement.classList.add("haveValue");
+    }
+
+    const pageNumbers = document.querySelectorAll(".page-number");
+    const maxPageNumber = +pageNumbers[pageNumbers.length - 1].innerHTML;
+
+    if (+value > maxPageNumber) {
+      inputElement.value = maxPageNumber;
+    }
+  });
+}
+
+setInputFocusListener()</script><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><a id="switch_commentBarrage" href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕"><i class="anzhiyufont anzhiyu-icon-danmu"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8448602360" server="tencent" type="playlist" mutex="true" volume="0.1" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8448602360&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.3.1/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>var meting_api = "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
+</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/10/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用!`,
+    `世间美好,不负归期。`,
+    "本站点已上线",
+    dnum,
+    "天",
+    "©2023 By Yobob 1.5.3",
+    ""
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#3b70fc",
+      "",
+      "color:#3b70fc",
+      "color:#3b70fc",
+      "",
+      "color:#3b70fc",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by YoBob %c 你正在访问 MuYu 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script src="https://cdn.cbd.int/algoliasearch@4.16.0/dist/algoliasearch-lite.umd.js"></script><script src="https://cdn.cbd.int/instantsearch.js@4.46.1/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.cbd.int/mermaid@9.1.7/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikko.muyuai.top/',
+      region: '',
+      onCommentLoaded: function () {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+        setTimeout(function(){
+          let tk_comment = document.querySelectorAll('.tk-comments-container .tk-comment')
+          if (tk_comment.length > 0) {
+            let html = `<div class="swiper-wrapper">`
+            for (let i = 0; i < tk_comment.length; i++) {
+              let tk_id = tk_comment[i].getAttribute('id') || ''
+              let tk_nick = tk_comment[i].querySelector('.tk-nick')?.innerText || ''
+              let tk_href = tk_comment[i].querySelector('.tk-nick')?.href || ''
+              let tk_avatar = tk_comment[i].querySelector('.tk-avatar-img')?.src || ''
+              let tk_time = tk_comment[i].querySelector('.tk-time')?.innerText || ''
+              let tk_city = tk_comment[i].querySelector('.tk-extras .tk-extra:first-child span:last-child')?.innerText || ''
+              let tk_content = tk_comment[i].querySelector('.tk-content>span:last-child')?.innerHTML || ''
+              tk_content = tk_content.replace(/\n/g, '') // replace \n
+              tk_content = tk_content.replace(/<blockquote>.*?<\/blockquote>/gi, '') // replace blockquote
+              tk_content = tk_content.replace(/<pre.*?<\/pre>/gi, '[代码]') // replace code
+              html += `
+                <div class="swiper-slide">
+                  <div class="comment-barrage-item">
+                    <div class="barrage-info">
+                      <a class="barrage-title" title="跳转至评论区" href="#post-comment">热评</a>
+                      <a href="${tk_href ? tk_href + '" target="_blank" rel="noopener noreferrer" title="访问 '+ tk_nick +'"' : 'javascript:void(0);"'}>
+                        <img class="barrage-avatar" src= "https://bu.dusays.com/2022/01/14/1ff50a00bd75c.gif" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="${tk_avatar}">
+                      </a>
+                      <span class="barrage-nick">${tk_nick}</span>
+                      <span class="barrage-city">${tk_city}</span>
+                      <span class="barrage-time">${tk_time}</span>
+                      <a class="barrage-close" onclick="eurkon.switchCommentBarrage()" title="隐藏热评"><i class="fa-solid fa-xmark"></i></a>
+                    </div>
+                    <div class="barrage-content">
+                      <a title="跳转至该评论" href="#${tk_id}">${tk_content}</a>
+                    </div>
+                  </div>
+                </div>`
+            }
+            html += '</div>'
+            let barrageContainer = document.getElementById('comment-barrage') || document.createElement('div')
+            barrageContainer.id = 'comment-barrage'
+            barrageContainer.innerHTML = html
+            barrageContainer.style.display = window.localStorage.getItem('commentBarrageDisplay') === 'false' ? 'none' : 'block'
+            document.getElementById('post-comment').appendChild(barrageContainer)
+            var barrageSwiper = new Swiper('#comment-barrage', {
+              direction: 'vertical',
+              loop: true,
+              mousewheel: true,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: true,
+              }
+            })
+            barrageContainer.onmouseenter = function () {
+              barrageSwiper.autoplay.stop()
+            };
+            barrageContainer.onmouseleave = function () {
+              barrageSwiper.autoplay.start()
+            };
+          }
+        }, 1000)
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikko.muyuai.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    }
+    getScript('https://cdn.cbd.int/twikoo@1.6.17/dist/twikoo.all.min.js').then(runFn)
+  }
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikko.muyuai.top/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.17/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick}</span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>//动态标题
+let leaveTitle = 'w(ﾟДﾟ)w 不要走！再看看嘛！';
+let backTitle = '♪(^∇^*)欢迎肥来！';
+let OriginTitile = document.title
+let titleTime
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) {
+    //离开当前页面时标签显示内容
+    document.title = leaveTitle
+    clearTimeout(titleTime)
+  } else {
+    //返回当前页面时标签显示内容
+    document.title = backTitle + OriginTitile
+    //两秒后变回正常标题
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile
+    }, 2000)
+  }
+})</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script>// 初始化函数
+let rm = {};
+
+//禁止图片与超链接拖拽
+let aElements = document.getElementsByTagName("a");
+for (let i = 0; i < aElements.length; i++) {
+  aElements[i].setAttribute("draggable", "false");
+  let imgElements = aElements[i].getElementsByTagName("img");
+  for (let j = 0; j < imgElements.length; j++) {
+    imgElements[j].setAttribute("draggable", "false");
+  }
+}
+
+// 显示菜单
+rm.showRightMenu = function (isTrue, x = 0, y = 0) {
+  console.info(x, y)
+  let rightMenu = document.getElementById("rightMenu");
+  rightMenu.style.top = x + "px";
+  rightMenu.style.left = y + "px";
+  if (isTrue) {
+    rightMenu.style.display = "block";
+    stopMaskScroll();
+  } else {
+    rightMenu.style.display = "none";
+  }
+};
+
+// 隐藏菜单
+rm.hideRightMenu = function () {
+  rm.showRightMenu(false);
+  let rightMenuMask = document.querySelector("#rightmenu-mask");
+  rightMenuMask.style.display = "none";
+};
+
+// 尺寸
+let rmWidth = document.getElementById("rightMenu").offsetWidth;
+let rmHeight = document.getElementById("rightMenu").offsetHeight;
+
+// 重新定义尺寸
+rm.reloadrmSize = function () {
+  rightMenu.style.visibility = "hidden";
+  rightMenu.style.display = "block";
+  // 获取宽度和高度
+  rmWidth = document.getElementById("rightMenu").offsetWidth;
+  rmHeight = document.getElementById("rightMenu").offsetHeight;
+  rightMenu.style.visibility = "visible";
+};
+
+// 获取点击的href
+let domhref = "";
+let domImgSrc = "";
+let globalEvent = null;
+
+var oncontextmenuFunction = function (event) {
+  if (document.body.clientWidth > 768) {
+    let pageX = event.clientX + 10; //加10是为了防止显示时鼠标遮在菜单上
+    let pageY = event.clientY;
+
+    //其他额外菜单
+    const $rightMenuOther = document.querySelector(".rightMenuOther");
+    const $rightMenuPlugin = document.querySelector(".rightMenuPlugin");
+    const $rightMenuCopyText = document.querySelector("#menu-copytext");
+    const $rightMenuPasteText = document.querySelector("#menu-pastetext");
+    const $rightMenuCommentText = document.querySelector("#menu-commenttext");
+    const $rightMenuNewWindow = document.querySelector("#menu-newwindow");
+    const $rightMenuNewWindowImg = document.querySelector("#menu-newwindowimg");
+    const $rightMenuCopyLink = document.querySelector("#menu-copylink");
+    const $rightMenuCopyImg = document.querySelector("#menu-copyimg");
+    const $rightMenuDownloadImg = document.querySelector("#menu-downloadimg");
+    const $rightMenuSearch = document.querySelector("#menu-search");
+    const $rightMenuSearchBaidu = document.querySelector("#menu-searchBaidu");
+    const $rightMenuMusicToggle = document.querySelector("#menu-music-toggle");
+    const $rightMenuMusicBack = document.querySelector("#menu-music-back");
+    const $rightMenuMusicForward = document.querySelector("#menu-music-forward");
+    const $rightMenuMusicPlaylist = document.querySelector("#menu-music-playlist");
+    const $rightMenuMusicCopyMusicName = document.querySelector("#menu-music-copyMusicName");
+
+    let href = event.target.href;
+    let imgsrc = event.target.currentSrc;
+
+    // 判断模式 扩展模式为有事件
+    let pluginMode = false;
+    $rightMenuOther.style.display = "block";
+    globalEvent = event;
+
+    // 检查是否需要复制 是否有选中文本
+    if (selectTextNow && window.getSelection()) {
+      pluginMode = true;
+      $rightMenuCopyText.style.display = "block";
+      $rightMenuCommentText.style.display = "block";
+      $rightMenuSearch.style.display = "block";
+      $rightMenuSearchBaidu.style.display = "block";
+    } else {
+      $rightMenuCopyText.style.display = "none";
+      $rightMenuCommentText.style.display = "none";
+      $rightMenuSearchBaidu.style.display = "none";
+      $rightMenuSearch.style.display = "none";
+    }
+
+    //检查是否右键点击了链接a标签
+    if (href) {
+      pluginMode = true;
+      $rightMenuNewWindow.style.display = "block";
+      $rightMenuCopyLink.style.display = "block";
+      domhref = href;
+    } else {
+      $rightMenuNewWindow.style.display = "none";
+      $rightMenuCopyLink.style.display = "none";
+    }
+
+    //检查是否需要复制图片
+    if (imgsrc) {
+      pluginMode = true;
+      $rightMenuCopyImg.style.display = "block";
+      $rightMenuDownloadImg.style.display = "block";
+      $rightMenuNewWindowImg.style.display = "block";
+      document.getElementById("rightMenu").style.width="12rem"
+      domImgSrc = imgsrc;
+    } else {
+      $rightMenuCopyImg.style.display = "none";
+      $rightMenuDownloadImg.style.display = "none";
+      $rightMenuNewWindowImg.style.display = "none";
+    }
+
+    // 判断是否为输入框
+    if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
+      pluginMode = true;
+      $rightMenuPasteText.style.display = "block";
+    } else {
+      $rightMenuPasteText.style.display = "none";
+    }
+    const navMusicEl = document.querySelector("#nav-music");
+    //判断是否是音乐
+    if (navMusicEl && navMusicEl.contains(event.target)) {
+      pluginMode = true;
+      $rightMenuMusicToggle.style.display = "block";
+      $rightMenuMusicBack.style.display = "block";
+      $rightMenuMusicForward.style.display = "block";
+      $rightMenuMusicPlaylist.style.display = "block";
+      $rightMenuMusicCopyMusicName.style.display = "block";
+    } else {
+      $rightMenuMusicToggle.style.display = "none";
+      $rightMenuMusicBack.style.display = "none";
+      $rightMenuMusicForward.style.display = "none";
+      $rightMenuMusicPlaylist.style.display = "none";
+      $rightMenuMusicCopyMusicName.style.display = "none";
+    }
+
+    // 如果不是扩展模式则隐藏扩展模块
+    if (pluginMode) {
+      $rightMenuOther.style.display = "none";
+      $rightMenuPlugin.style.display = "block";
+    } else {
+      $rightMenuPlugin.style.display = "none";
+    }
+
+    rm.reloadrmSize();
+
+    // 鼠标默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
+    if (pageX + rmWidth > window.innerWidth) {
+      pageX -= rmWidth + 10;
+    }
+    if (pageY + rmHeight > window.innerHeight) {
+      pageY -= pageY + rmHeight - window.innerHeight;
+    }
+
+    rm.showRightMenu(true, pageY, pageX);
+    document.getElementById("rightmenu-mask").style.display = "flex";
+    return false;
+  }
+};
+
+// 监听右键初始化
+window.oncontextmenu = oncontextmenuFunction
+
+// 下载图片状态
+rm.downloadimging = false;
+
+// 复制图片到剪贴板
+rm.writeClipImg = function (imgsrc) {
+  console.log("按下复制");
+  rm.hideRightMenu();
+  anzhiyu.snackbarShow("正在下载中，请稍后", false, 10000);
+  if (rm.downloadimging == false) {
+    rm.downloadimging = true;
+    setTimeout(function () {
+      copyImage(imgsrc);
+      anzhiyu.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议");
+      rm.downloadimging = false;
+    }, "10000");
+  }
+};
+
+function imageToBlob(imageURL) {
+  const img = new Image();
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  img.crossOrigin = "";
+  img.src = imageURL;
+  return new Promise(resolve => {
+    img.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0);
+      c.toBlob(
+        blob => {
+          // here the image is a blob
+          resolve(blob);
+        },
+        "image/png",
+        0.75
+      );
+    };
+  });
+}
+
+async function copyImage(imageURL) {
+  const blob = await imageToBlob(imageURL);
+  const item = new ClipboardItem({ "image/png": blob });
+  navigator.clipboard.write([item]);
+}
+
+rm.copyUrl = function (id) {
+  const input = document.createElement("input"); // Create a new <input> element
+  input.id = "copyVal"; // Set the id of the new element to "copyVal"
+  document.body.appendChild(input); // Append the new element to the end of the <body> element
+  
+  const text = id;
+  input.value = text;
+  input.select();
+  input.setSelectionRange(0, input.value.length);
+  document.execCommand("copy");
+  
+  input.remove(); // Remove the <input> element from the DOM
+};
+
+function stopMaskScroll() {
+  if (document.getElementById("rightmenu-mask")) {
+    let xscroll = document.getElementById("rightmenu-mask");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+  if (document.getElementById("rightMenu")) {
+    let xscroll = document.getElementById("rightMenu");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+}
+
+rm.rightmenuCopyText = function (txt) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt);
+  }
+  rm.hideRightMenu();
+};
+
+rm.copyPageUrl = function (url) {
+  if (!url) {
+    url = window.location.href;
+  }
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+rm.sharePage = function () {
+  var content = window.location.href;
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+// 复制当前选中文本
+var selectTextNow = "";
+document.onmouseup = document.ondblclick = selceText;
+
+function selceText() {
+  var txt;
+  if (document.selection) {
+    txt = document.selection.createRange().text;
+  } else {
+    txt = window.getSelection().toString();
+  }
+  selectTextNow = txt !== "" ? txt : "";
+}
+
+// 读取剪切板
+rm.readClipboard = function () {
+  if (navigator.clipboard) {
+    navigator.clipboard.readText().then(clipText => rm.insertAtCaret(globalEvent.target, clipText));
+  }
+};
+
+// 粘贴文本到焦点
+rm.insertAtCaret = function (elemt, value) {
+  const startPos = elemt.selectionStart,
+    endPos = elemt.selectionEnd;
+  if (document.selection) {
+    elemt.focus();
+    var sel = document.selection.createRange();
+    sel.text = value;
+    elemt.focus();
+  } else {
+    if (startPos || startPos == "0") {
+      var scrollTop = elemt.scrollTop;
+      elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length);
+      elemt.focus();
+      elemt.selectionStart = startPos + value.length;
+      elemt.selectionEnd = startPos + value.length;
+      elemt.scrollTop = scrollTop;
+    } else {
+      elemt.value += value;
+      elemt.focus();
+    }
+  }
+};
+
+//粘贴文本
+rm.pasteText = function () {
+  const result = rm.readClipboard() || "";
+  rm.hideRightMenu();
+};
+
+//引用到评论
+rm.rightMenuCommentText = function (txt) {
+  rm.hideRightMenu();
+  const postCommentDom = document.getElementById("post-comment");
+  var domTop = postCommentDom.offsetTop;
+  window.scrollTo(0, domTop - 80);
+  if (txt == "undefined" || txt == "null") txt = "好棒！";
+  function setText() {
+    setTimeout(() => {
+      var input = document.getElementsByClassName("el-textarea__inner")[0];
+      if (!input) setText();
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("input", true, true);
+      let inputValue = replaceAll(txt, "\n", "\n> ");
+      input.value = "> " + inputValue + "\n\n";
+      input.dispatchEvent(evt);
+      input.focus();
+      input.setSelectionRange(-1, -1);
+      if (document.getElementById("comment-tips")) {
+        document.getElementById("comment-tips").classList.add("show");
+      }
+    }, 100);
+  }
+  setText();
+};
+
+//替换所有内容
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
+// 百度搜索
+rm.searchBaidu = function () {
+  anzhiyu.snackbarShow("即将跳转到百度搜索", false, 2000);
+  setTimeout(function () {
+    window.open("https://www.baidu.com/s?wd=" + selectTextNow);
+  }, "2000");
+  rm.hideRightMenu();
+};
+
+//分享链接
+rm.copyLink = function () {
+  rm.rightmenuCopyText(domhref);
+  anzhiyu.snackbarShow("已复制链接地址");
+};
+
+function addRightMenuClickEvent() {
+  // 添加点击事件
+  document.getElementById("menu-backward").addEventListener("click", function () {
+  window.history.back();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-forward").addEventListener("click", function () {
+    window.history.forward();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-refresh").addEventListener("click", function () {
+    window.location.reload();
+  });
+
+  document.getElementById("menu-top").addEventListener("click", function () {
+    anzhiyu.scrollToDest(0, 500);
+    rm.hideRightMenu();
+  });
+
+  const menuLinks = document.querySelectorAll(".menu-link");
+  menuLinks.forEach(function (link) {
+    link.addEventListener("click", rm.hideRightMenu);
+  });
+
+  document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
+
+  document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
+    window.location.href = window.location.origin;
+  });
+
+  document.getElementById("menu-randomPost").addEventListener("click", function () {
+    toRandomPost();
+  });
+
+  document.getElementById("menu-commentBarrage").addEventListener("click", anzhiyu.switchCommentBarrage);
+
+  document.getElementById("rightmenu-mask").addEventListener("click", rm.hideRightMenu);
+
+  document.getElementById("rightmenu-mask").addEventListener("contextmenu", function (event) {
+    rm.hideRightMenu();
+    event.preventDefault(); // Prevent the default context menu from appearing
+  });
+
+  document.getElementById("menu-copy").addEventListener("click", rm.copyPageUrl);
+
+  document.getElementById("menu-pastetext").addEventListener("click", rm.pasteText);
+
+  document.getElementById("menu-copytext").addEventListener("click", function () {
+    rm.rightmenuCopyText(selectTextNow);
+    anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
+  });
+
+  document.getElementById("menu-commenttext").addEventListener("click", function () {
+    rm.rightMenuCommentText(selectTextNow);
+  });
+
+  document.getElementById("menu-newwindow").addEventListener("click", function () {
+    window.open(domhref, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copylink").addEventListener("click", rm.copyLink);
+
+  document.getElementById("menu-downloadimg").addEventListener("click", function () {
+    anzhiyu.downloadImage(domImgSrc, "anzhiyu");
+  });
+
+  document.getElementById("menu-newwindowimg").addEventListener("click", function () {
+    window.open(domImgSrc, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copyimg").addEventListener("click", function () {
+    rm.writeClipImg(domImgSrc);
+  });
+
+  document.getElementById("menu-searchBaidu").addEventListener("click", rm.searchBaidu);
+
+  //音乐
+  document.getElementById("menu-music-toggle").addEventListener("click", anzhiyu.musicToggle);
+
+  document.getElementById("menu-music-back").addEventListener("click", anzhiyu.musicSkipBack);
+
+  document.getElementById("menu-music-forward").addEventListener("click", anzhiyu.musicSkipForward);
+
+  document.getElementById("menu-music-copyMusicName").addEventListener("click", function () {
+    rm.rightmenuCopyText(anzhiyu.musicGetName());
+    anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
+  });
+
+}
+
+addRightMenuClickEvent();</script><script data-pjax>var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+var pageHeaderEl = document.getElementById("page-header");
+var navMusicEl = document.getElementById("nav-music");
+var consoleEl = document.getElementById("console");
+// 已随机的歌曲
+var selectRandomSong = [];
+// 音乐默认声音大小
+var musicVolume = 0.8;
+// 是否切换了周杰伦音乐列表
+var changeMusicListFlag = false;
+// 当前默认播放列表
+var defaultPlayMusicList = [];
+
+document.getElementById("page-name").innerText = document.title.split(" | 木鱼")[0];
+anzhiyu.initIndexEssay();
+anzhiyu.changeTimeInEssay();
+anzhiyu.removeBodyPaceClass();
+anzhiyu.qrcodeCreate();
+anzhiyu.changeTimeInAlbumDetail();
+anzhiyu.reflashEssayWaterFall();
+anzhiyu.sayhi();
+anzhiyu.stopImgRightDrag();
+anzhiyu.addNavBackgroundInit();
+anzhiyu.setValueToBodyType();
+anzhiyu.catalogActive();
+anzhiyu.tagsPageActive();
+anzhiyu.categoriesBarActive();
+anzhiyu.topCategoriesBarScroll();
+anzhiyu.switchRightClickMenuHotReview();
+anzhiyu.getCustomPlayList();
+anzhiyu.addEventListenerConsoleMusicList(false);
+setTimeout(() => {if (typeof addFriendLinksInFooter === "function") {addFriendLinksInFooter();}}, 200)</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4506302_k7wm7dt1f5.js"></script><script data-pjax src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.js"></script><script data-pjax src="https://tong.muyuai.top/blog/yobob.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div></body></html>
